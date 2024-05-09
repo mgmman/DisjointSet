@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisjointSet", "DisjointSet.csproj", "{8D821D66-DA37-415E-9385-E20BFB91B946}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisjointSetTests", "DisjointSetTests\DisjointSetTests.csproj", "{26B4D93C-CEFB-4712-88FD-5BB2B886710F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{8D821D66-DA37-415E-9385-E20BFB91B946}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D821D66-DA37-415E-9385-E20BFB91B946}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D821D66-DA37-415E-9385-E20BFB91B946}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26B4D93C-CEFB-4712-88FD-5BB2B886710F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26B4D93C-CEFB-4712-88FD-5BB2B886710F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26B4D93C-CEFB-4712-88FD-5BB2B886710F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26B4D93C-CEFB-4712-88FD-5BB2B886710F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

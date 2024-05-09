@@ -1,6 +1,9 @@
-﻿namespace DisjointSet;
+﻿using System.Collections;
 
-public class DisjointSet<T>
+namespace DisjointSet;
+
+public class DisjointSet<T> : IEnumerable<DisjointSet<T>.Node<T>>
+where T: notnull
 {
     private Dictionary<T, Node<T>> Nodes = new();
     public class Node<T>
@@ -21,6 +24,8 @@ public class DisjointSet<T>
     
     public Node<T> MakeSet(T id)
     {
+        if (Nodes.ContainsKey(id))
+            return Nodes[id];
         var x = new Node<T>(id);
         Nodes[id] = x;
         x.Parent = x; 
@@ -29,10 +34,17 @@ public class DisjointSet<T>
 
     public Node<T> Find(T id)
     {
-        var x = Nodes[id];
+        if (!Nodes.TryGetValue(id, out var x))
+            x = MakeSet(id);
         if (x.Parent != x)
             x.Parent = Find(x.Parent); 
         return x.Parent; 
+    }
+
+    public void Delete(T id)
+    {
+        if (Nodes.ContainsKey(id))
+            Nodes.Remove(id);
     }
     
     public Node<T> Find(Node<T> x)
@@ -54,5 +66,20 @@ public class DisjointSet<T>
             y.Parent = x;
         if (x.Rank == y.Rank) 
             y.Rank++; 
+    }
+
+    public bool Contains(T id)
+    {
+        return Nodes.ContainsKey(id);
+    }
+
+    IEnumerator<Node<T>> IEnumerable<Node<T>>.GetEnumerator()
+    {
+        return Nodes.Values.GetEnumerator();
+    }
+
+    public IEnumerator GetEnumerator()
+    {
+        return Nodes.Values.GetEnumerator();
     }
 }
